@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found | Jamega Staffing Solutions{% endblock %}
+
+{% block content %}
+<!-- Error Section -->
+<section class="py-5 mt-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-1 fw-bold text-danger">404</h1>
+                <h2 class="mb-4">Page Not Found</h2>
+                <p class="lead mb-5">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="{{ url_for('index') }}" class="btn btn-dark btn-lg">
+                        <i class="fas fa-home me-2"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
