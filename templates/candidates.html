@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block title %}Ready To Work | Jamega Staffing Solutions{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header contact-header" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f');">
+    <div class="container text-center position-relative">
+        <h1 class="display-4 fw-bold text-white mb-3">READY TO WORK?</h1>
+        <p class="lead text-white">Connect with top employers in Northwest Indiana and Chicago. Apply now!</p>
+    </div>
+</section>
+
+<!-- Candidate Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">JOIN OUR TALENT POOL</h2>
+                <div class="heading-underline"></div>
+                <p class="lead mb-4">Let us match you with employers seeking your skills. Tell us about yourself!</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="form-container">
+                    <form action="{{ url_for('submit_candidate') }}" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+                        {{ form.csrf_token }}
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.name.label(class="form-label fw-bold") }}
+                                    {{ form.name(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.email.label(class="form-label fw-bold") }}
+                                    {{ form.email(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.phone.label(class="form-label fw-bold") }}
+                                    {{ form.phone(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.position_type.label(class="form-label fw-bold") }}
+                                    {{ form.position_type(class="form-select form-select-lg") }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-group">
+                                {{ form.availability.label(class="form-label fw-bold") }}
+                                {{ form.availability(class="form-control form-control-lg", placeholder="e.g., Immediately, Two weeks notice, Weekends only, etc.") }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-group">
+                                {{ form.experience.label(class="form-label fw-bold") }}
+                                {{ form.experience(class="form-control form-control-lg", rows=4, placeholder="Please share any relevant work experience, skills, or certifications.") }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-group">
+                                {{ form.resume.label(class="form-label fw-bold") }}
+                                {{ form.resume(class="form-control form-control-lg") }}
+                                <div class="form-text text-muted">
+                                    Upload your resume to help us better match you with job opportunities (PDF, DOC, or DOCX format).
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            {{ form.submit(class="btn btn-orange btn-lg fw-bold px-5") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">WHY WORK WITH JAMEGA</h2>
+                <div class="heading-underline"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="fw-bold">COMPETITIVE PAY</h3>
+                    <p>We ensure you receive fair compensation for your skills and experience.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="fw-bold">IMMEDIATE OPENINGS</h3>
+                    <p>Get to work quickly with our wide network of employers looking for talent now.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="fw-bold">CAREER GROWTH</h3>
+                    <p>Many temporary positions lead to permanent opportunities. Build your experience and network.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -12,10 +12,10 @@
                 <h1 class="display-3 fw-bold mb-4">Staffing That Works as <span class="text-danger">Hard as You Do</span></h1>
                 <p class="lead mb-5">Jamega Staffing Solutions is the aggressive, no-excuses staffing agency serving Northwest Indiana and Chicago. We deliver reliable talent when you need it most.</p>
                 <div class="d-flex flex-column flex-md-row">
-                    <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-danger btn-lg fw-bold me-md-3 mb-3 mb-md-0">
+                    <a href="{{ url_for('employers') }}" class="btn btn-danger btn-lg fw-bold me-md-3 mb-3 mb-md-0">
                         <i class="fas fa-bolt me-2"></i> NEED PEOPLE FAST?
                     </a>
-                    <a href="{{ url_for('contact') }}?form_type=candidate" class="btn btn-orange btn-lg fw-bold">
+                    <a href="{{ url_for('candidates') }}" class="btn btn-orange btn-lg fw-bold">
                         <i class="fas fa-hard-hat me-2"></i> READY TO WORK?
                     </a>
                 </div>
@@ -121,8 +121,8 @@
                 <p class="text-white">Let us handle the hiring while you focus on your business.</p>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
-                <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-light btn-lg fw-bold me-2">GET STAFFED FAST</a>
-                <a href="{{ url_for('contact') }}?form_type=candidate" class="btn btn-orange btn-lg fw-bold">READY TO WORK</a>
+                <a href="{{ url_for('employers') }}" class="btn btn-light btn-lg fw-bold me-2">GET STAFFED FAST</a>
+                <a href="{{ url_for('candidates') }}" class="btn btn-orange btn-lg fw-bold">READY TO WORK</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}For Employers | Jamega Staffing Solutions{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header contact-header">
+    <div class="container text-center position-relative">
+        <h1 class="display-4 fw-bold text-white mb-3">GET STAFFED FAST</h1>
+        <p class="lead text-white">Tell us about your staffing needs, and we'll match you with qualified, reliable workers.</p>
+    </div>
+</section>
+
+<!-- Employer Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">NEED RELIABLE WORKERS?</h2>
+                <div class="heading-underline"></div>
+                <p class="lead mb-4">Fill out the form below and we'll contact you within 24 hours.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="form-container">
+                    <form action="{{ url_for('submit_employer') }}" method="POST" class="needs-validation" novalidate>
+                        {{ form.csrf_token }}
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.name.label(class="form-label fw-bold") }}
+                                    {{ form.name(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.company.label(class="form-label fw-bold") }}
+                                    {{ form.company(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.email.label(class="form-label fw-bold") }}
+                                    {{ form.email(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    {{ form.phone.label(class="form-label fw-bold") }}
+                                    {{ form.phone(class="form-control form-control-lg") }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-group">
+                                {{ form.industry.label(class="form-label fw-bold") }}
+                                {{ form.industry(class="form-select form-select-lg") }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-group">
+                                {{ form.staffing_needs.label(class="form-label fw-bold") }}
+                                {{ form.staffing_needs(class="form-control form-control-lg", rows=5, placeholder="How many workers do you need? What skills are required? When do you need them?") }}
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            {{ form.submit(class="btn btn-danger btn-lg fw-bold px-5") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">WHY EMPLOYERS CHOOSE JAMEGA</h2>
+                <div class="heading-underline"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="fw-bold">FAST PLACEMENT</h3>
+                    <p>We understand urgency. Most staffing requests are filled within 24-48 hours.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="fw-bold">QUALITY ASSURED</h3>
+                    <p>All workers are pre-screened with thorough background checks and skill assessments.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="fw-bold">COMPETITIVE RATES</h3>
+                    <p>Transparent pricing with no hidden fees. Only pay for what you need.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
