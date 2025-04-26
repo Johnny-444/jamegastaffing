@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}Jamega Staffing - Staffing That Works as Hard as You Do{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-white">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-3 fw-bold mb-4">Staffing That Works as <span class="text-danger">Hard as You Do</span></h1>
+                <p class="lead mb-5">Jamega Staffing Solutions is the aggressive, no-excuses staffing agency serving Northwest Indiana and Chicago. We deliver reliable talent when you need it most.</p>
+                <div class="d-flex flex-column flex-md-row">
+                    <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-danger btn-lg fw-bold me-md-3 mb-3 mb-md-0">
+                        <i class="fas fa-bolt me-2"></i> NEED PEOPLE FAST?
+                    </a>
+                    <a href="{{ url_for('contact') }}?form_type=candidate" class="btn btn-outline-light btn-lg fw-bold">
+                        <i class="fas fa-hard-hat me-2"></i> READY TO WORK?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industries Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">INDUSTRIES WE SERVE</h2>
+                <div class="heading-underline"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="industry-card hospitality">
+                    <div class="industry-overlay"></div>
+                    <div class="industry-content">
+                        <i class="fas fa-utensils fa-3x mb-3"></i>
+                        <h3 class="fw-bold mb-3">HOSPITALITY</h3>
+                        <p>Front and back of house talent ready to jump in and deliver exceptional service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="industry-card industrial">
+                    <div class="industry-overlay"></div>
+                    <div class="industry-content">
+                        <i class="fas fa-industry fa-3x mb-3"></i>
+                        <h3 class="fw-bold mb-3">INDUSTRIAL</h3>
+                        <p>Reliable operators, laborers, and warehouse personnel for factories and distribution.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="industry-card general">
+                    <div class="industry-overlay"></div>
+                    <div class="industry-content">
+                        <i class="fas fa-hammer fa-3x mb-3"></i>
+                        <h3 class="fw-bold mb-3">GENERAL LABOR</h3>
+                        <p>Extra hands for construction, moving jobs, and light office support — no project too small.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('services') }}" class="btn btn-dark btn-lg">EXPLORE OUR SERVICES</a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">WHY CHOOSE JAMEGA STAFFING</h2>
+                <div class="heading-underline"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="fw-bold">RAPID RESPONSE</h3>
+                    <p>We understand urgency. Our team moves quickly to fill your staffing needs when time is critical.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3 class="fw-bold">VETTED TALENT</h3>
+                    <p>Our rigorous screening process ensures you get reliable workers who show up and deliver results.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="fw-bold">LOCAL EXPERTISE</h3>
+                    <p>We know Northwest Indiana and Chicago markets inside and out. We match the right talent to your needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="call-to-action py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
+                <h2 class="text-white mb-3">READY TO STOP WORRYING ABOUT STAFFING?</h2>
+                <p class="text-white">Let us handle the hiring while you focus on your business.</p>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-light btn-lg fw-bold">GET STARTED TODAY</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

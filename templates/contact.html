@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Jamega Staffing Solutions{% endblock %}
+
+{% block content %}
+<!-- Contact Header Section -->
+<section class="page-header contact-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="text-white display-4 fw-bold">CONTACT US</h1>
+                <p class="text-white lead">Reach out today to solve your staffing challenges or find your next opportunity.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="tab-buttons">
+                    <a href="{{ url_for('contact') }}?form_type=employer" class="tab-btn {% if form_type == 'employer' %}active{% endif %}">FOR EMPLOYERS</a>
+                    <a href="{{ url_for('contact') }}?form_type=candidate" class="tab-btn {% if form_type == 'candidate' %}active{% endif %}">FOR JOB SEEKERS</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                {% if form_type == 'employer' %}
+                <!-- Employer Form -->
+                <div class="form-container">
+                    <h2 class="fw-bold mb-4">NEED STAFFING SOLUTIONS?</h2>
+                    <p class="mb-4">Complete this form and one of our staffing experts will contact you within one business day to discuss your needs.</p>
+                    
+                    <form action="{{ url_for('submit_employer') }}" method="POST">
+                        {{ employer_form.hidden_tag() }}
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ employer_form.name.id }}" class="form-label fw-bold">Your Name *</label>
+                                {{ employer_form.name(class="form-control", placeholder="Enter your full name") }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ employer_form.company.id }}" class="form-label fw-bold">Company Name *</label>
+                                {{ employer_form.company(class="form-control", placeholder="Enter your company name") }}
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ employer_form.email.id }}" class="form-label fw-bold">Email Address *</label>
+                                {{ employer_form.email(class="form-control", placeholder="Enter your email address") }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ employer_form.phone.id }}" class="form-label fw-bold">Phone Number *</label>
+                                {{ employer_form.phone(class="form-control", placeholder="Enter your phone number") }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ employer_form.industry.id }}" class="form-label fw-bold">Industry *</label>
+                            {{ employer_form.industry(class="form-select") }}
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="{{ employer_form.staffing_needs.id }}" class="form-label fw-bold">Describe Your Staffing Needs *</label>
+                            {{ employer_form.staffing_needs(class="form-control", rows="5", placeholder="Tell us about your requirements, number of staff needed, timeframe, etc.") }}
+                        </div>
+                        
+                        <div class="d-grid">
+                            {{ employer_form.submit(class="btn btn-danger btn-lg fw-bold") }}
+                        </div>
+                    </form>
+                </div>
+                {% else %}
+                <!-- Candidate Form -->
+                <div class="form-container">
+                    <h2 class="fw-bold mb-4">READY TO WORK?</h2>
+                    <p class="mb-4">Fill out this application form to be considered for job opportunities that match your skills and availability.</p>
+                    
+                    <form action="{{ url_for('submit_candidate') }}" method="POST">
+                        {{ candidate_form.hidden_tag() }}
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ candidate_form.name.id }}" class="form-label fw-bold">Your Name *</label>
+                                {{ candidate_form.name(class="form-control", placeholder="Enter your full name") }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ candidate_form.email.id }}" class="form-label fw-bold">Email Address *</label>
+                                {{ candidate_form.email(class="form-control", placeholder="Enter your email address") }}
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ candidate_form.phone.id }}" class="form-label fw-bold">Phone Number *</label>
+                                {{ candidate_form.phone(class="form-control", placeholder="Enter your phone number") }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ candidate_form.position_type.id }}" class="form-label fw-bold">Position Type *</label>
+                                {{ candidate_form.position_type(class="form-select") }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ candidate_form.availability.id }}" class="form-label fw-bold">When Are You Available to Start? *</label>
+                            {{ candidate_form.availability(class="form-control", placeholder="e.g., Immediately, Next week, Specific date") }}
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="{{ candidate_form.experience.id }}" class="form-label fw-bold">Brief Description of Your Experience *</label>
+                            {{ candidate_form.experience(class="form-control", rows="5", placeholder="Tell us about your relevant work experience, skills, and qualifications") }}
+                        </div>
+                        
+                        <div class="d-grid">
+                            {{ candidate_form.submit(class="btn btn-danger btn-lg fw-bold") }}
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">GET IN TOUCH</h2>
+                <div class="heading-underline"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="contact-info-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="fw-bold">VISIT US</h3>
+                    <p>123 Staffing Ave, Suite 200<br>Hammond, IN 46320</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="contact-info-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="fw-bold">CALL US</h3>
+                    <p>(555) 123-4567</p>
+                    <p>Mon-Fri: 8am - 6pm</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="contact-info-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="fw-bold">EMAIL US</h3>
+                    <p>employers@jamegastaffing.com<br>
+                    workers@jamegastaffing.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form validation for employer form
+    const employerForm = document.querySelector('form[action="{{ url_for("submit_employer") }}"]');
+    if (employerForm) {
+        employerForm.addEventListener('submit', function(e) {
+            const name = employerForm.querySelector('[name="name"]');
+            const company = employerForm.querySelector('[name="company"]');
+            const email = employerForm.querySelector('[name="email"]');
+            const phone = employerForm.querySelector('[name="phone"]');
+            const staffingNeeds = employerForm.querySelector('[name="staffing_needs"]');
+            
+            let isValid = true;
+            
+            if (!name.value.trim()) {
+                isValid = false;
+                name.classList.add('is-invalid');
+            } else {
+                name.classList.remove('is-invalid');
+            }
+            
+            if (!company.value.trim()) {
+                isValid = false;
+                company.classList.add('is-invalid');
+            } else {
+                company.classList.remove('is-invalid');
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+                isValid = false;
+                email.classList.add('is-invalid');
+            } else {
+                email.classList.remove('is-invalid');
+            }
+            
+            if (!phone.value.trim()) {
+                isValid = false;
+                phone.classList.add('is-invalid');
+            } else {
+                phone.classList.remove('is-invalid');
+            }
+            
+            if (!staffingNeeds.value.trim()) {
+                isValid = false;
+                staffingNeeds.classList.add('is-invalid');
+            } else {
+                staffingNeeds.classList.remove('is-invalid');
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please complete all required fields correctly.');
+            }
+        });
+    }
+    
+    // Form validation for candidate form
+    const candidateForm = document.querySelector('form[action="{{ url_for("submit_candidate") }}"]');
+    if (candidateForm) {
+        candidateForm.addEventListener('submit', function(e) {
+            const name = candidateForm.querySelector('[name="name"]');
+            const email = candidateForm.querySelector('[name="email"]');
+            const phone = candidateForm.querySelector('[name="phone"]');
+            const availability = candidateForm.querySelector('[name="availability"]');
+            const experience = candidateForm.querySelector('[name="experience"]');
+            
+            let isValid = true;
+            
+            if (!name.value.trim()) {
+                isValid = false;
+                name.classList.add('is-invalid');
+            } else {
+                name.classList.remove('is-invalid');
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+                isValid = false;
+                email.classList.add('is-invalid');
+            } else {
+                email.classList.remove('is-invalid');
+            }
+            
+            if (!phone.value.trim()) {
+                isValid = false;
+                phone.classList.add('is-invalid');
+            } else {
+                phone.classList.remove('is-invalid');
+            }
+            
+            if (!availability.value.trim()) {
+                isValid = false;
+                availability.classList.add('is-invalid');
+            } else {
+                availability.classList.remove('is-invalid');
+            }
+            
+            if (!experience.value.trim()) {
+                isValid = false;
+                experience.classList.add('is-invalid');
+            } else {
+                experience.classList.remove('is-invalid');
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please complete all required fields correctly.');
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

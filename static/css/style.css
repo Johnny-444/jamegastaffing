@@ -1,0 +1,210 @@
+/* Additional styles to complement custom.css */
+
+/* Global enhancements for aggressive design aesthetic */
+:root {
+    --primary-gradient: linear-gradient(45deg, #d92322, #b01c1b);
+    --text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhance text contrast for better readability and bold appearance */
+.text-danger {
+    font-weight: 700;
+    text-shadow: var(--text-shadow);
+}
+
+/* Bold CTAs with hover animations */
+.btn {
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-danger, 
+.btn-dark {
+    text-shadow: var(--text-shadow);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    height: 100%;
+}
+
+/* Enhanced hero section with extra contrast */
+.hero-section {
+    position: relative;
+}
+
+.hero-section h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: -0.5px;
+}
+
+/* Animated elements for visual interest */
+.feature-icon, 
+.service-icon, 
+.value-icon, 
+.contact-icon,
+.process-number,
+.step-number {
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-icon:hover, 
+.service-icon:hover, 
+.value-icon:hover, 
+.contact-icon:hover,
+.process-number:hover,
+.step-number:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Emphasized section headings */
+.section-heading {
+    position: relative;
+    display: inline-block;
+    text-shadow: var(--text-shadow);
+}
+
+/* Enhanced visual elements for industry cards */
+.industry-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.industry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(217, 35, 34, 0.3) 0%, rgba(217, 35, 34, 0) 100%);
+    transition: left 0.5s ease;
+}
+
+.industry-card:hover {
+    transform: scale(1.02);
+}
+
+.industry-card:hover::before {
+    left: 0;
+}
+
+/* Add visual interest to form elements */
+.form-control:focus, 
+.form-select:focus {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Enhanced CTA section */
+.call-to-action {
+    position: relative;
+    overflow: hidden;
+}
+
+.call-to-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,100 M0,100 L100,0" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+    opacity: 0.3;
+}
+
+/* Additional animation for process steps */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.process-step:hover .process-number {
+    animation: pulse 1.5s infinite;
+}
+
+/* Enhanced navbar style for aggressive look */
+.navbar-dark {
+    background: linear-gradient(to right, #212529, #343a40) !important;
+    border-bottom: 3px solid var(--primary);
+}
+
+/* Improve footer visual interest */
+footer {
+    background: linear-gradient(to right, #212529, #343a40);
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-gradient);
+}
+
+/* Enhance form validation visual feedback */
+.is-invalid {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Print styles for better accessibility */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    
+    .container {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* Accessibility improvements */
+.form-label {
+    color: #212529;
+    font-weight: 500;
+}
+
+/* Additional visual interest for page transitions */
+@keyframes pageTransition {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    animation: pageTransition 0.5s ease;
+}

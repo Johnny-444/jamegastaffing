@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Services - Jamega Staffing Solutions{% endblock %}
+
+{% block content %}
+<!-- Services Header Section -->
+<section class="page-header services-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="text-white display-4 fw-bold">OUR SERVICES</h1>
+                <p class="text-white lead">Providing talented workers across multiple industries with no excuses — just results.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Detail Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="service-img hospitality-img"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h2 class="fw-bold">HOSPITALITY STAFFING</h2>
+                    <p class="lead">Front and back of house talent that understands customer service and operational excellence.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check text-danger"></i> Hotel staff including housekeeping and front desk</li>
+                        <li><i class="fas fa-check text-danger"></i> Restaurant servers, hosts, kitchen staff, and bussers</li>
+                        <li><i class="fas fa-check text-danger"></i> Event staff for venues, conferences, and special occasions</li>
+                        <li><i class="fas fa-check text-danger"></i> Catering personnel for both service and preparation</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-dark">REQUEST HOSPITALITY STAFF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <div class="service-img industrial-img"></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h2 class="fw-bold">INDUSTRIAL STAFFING</h2>
+                    <p class="lead">Reliable workforce solutions for factories, warehouses, and distribution centers.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check text-danger"></i> General laborers for production lines</li>
+                        <li><i class="fas fa-check text-danger"></i> Machine operators with technical skills</li>
+                        <li><i class="fas fa-check text-danger"></i> Warehouse pickers, packers, and shipping personnel</li>
+                        <li><i class="fas fa-check text-danger"></i> Forklift operators and material handlers</li>
+                        <li><i class="fas fa-check text-danger"></i> Inventory and logistics support</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-dark">REQUEST INDUSTRIAL STAFF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="service-img construction-img"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h2 class="fw-bold">GENERAL LABOR</h2>
+                    <p class="lead">Extra hands for construction sites, moving jobs, and projects of all sizes.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check text-danger"></i> Construction site laborers and assistants</li>
+                        <li><i class="fas fa-check text-danger"></i> Moving crews for residential and commercial relocations</li>
+                        <li><i class="fas fa-check text-danger"></i> Seasonal support for peak demand periods</li>
+                        <li><i class="fas fa-check text-danger"></i> Cleanup crews for job sites and special projects</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-dark">REQUEST GENERAL LABOR</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <div class="service-img admin-img"></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h2 class="fw-bold">ADMINISTRATIVE SUPPORT</h2>
+                    <p class="lead">Office personnel to keep your business operations running smoothly.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check text-danger"></i> Administrative assistants and receptionists</li>
+                        <li><i class="fas fa-check text-danger"></i> Data entry specialists and clerks</li>
+                        <li><i class="fas fa-check text-danger"></i> Customer service representatives</li>
+                        <li><i class="fas fa-check text-danger"></i> Office managers and coordinators</li>
+                    </ul>
+                    <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-dark">REQUEST ADMIN SUPPORT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Staffing Process Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">OUR STAFFING PROCESS</h2>
+                <div class="heading-underline"></div>
+                <p class="lead">We take the hassle out of hiring with our streamlined approach.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="process-step text-center">
+                    <div class="process-number">1</div>
+                    <h4 class="fw-bold mt-4">CONSULTATION</h4>
+                    <p>We learn about your specific needs, timeline, and requirements.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="process-step text-center">
+                    <div class="process-number">2</div>
+                    <h4 class="fw-bold mt-4">SOURCING</h4>
+                    <p>We tap our talent pool and recruit qualified candidates.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="process-step text-center">
+                    <div class="process-number">3</div>
+                    <h4 class="fw-bold mt-4">VETTING</h4>
+                    <p>Rigorous screening ensures only the best workers are sent.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="process-step text-center">
+                    <div class="process-number">4</div>
+                    <h4 class="fw-bold mt-4">PLACEMENT</h4>
+                    <p>Qualified workers arrive ready to deliver results from day one.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="call-to-action py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h2 class="text-white mb-4">READY TO SOLVE YOUR STAFFING CHALLENGES?</h2>
+                <p class="text-white mb-4">No more excuses, no more delays — just the quality workers you need, when you need them.</p>
+                <a href="{{ url_for('contact') }}?form_type=employer" class="btn btn-light btn-lg fw-bold">GET STAFFED TODAY</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

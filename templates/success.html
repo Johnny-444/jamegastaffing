@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}Submission Received - Jamega Staffing Solutions{% endblock %}
+
+{% block content %}
+<!-- Success Header Section -->
+<section class="page-header success-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="text-white display-4 fw-bold">THANK YOU!</h1>
+                <p class="text-white lead">Your submission has been received successfully.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Message Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="success-icon mb-4">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
+                {% if submission_type == 'employer' %}
+                <h2 class="fw-bold mb-4">YOUR STAFFING REQUEST HAS BEEN RECEIVED</h2>
+                <p class="lead mb-4">Thank you for reaching out to Jamega Staffing Solutions. One of our staffing experts will contact you within one business day to discuss your needs and provide staffing solutions tailored to your requirements.</p>
+                <p class="mb-5">In the meantime, feel free to explore our services or learn more about our approach to staffing.</p>
+                
+                <div class="d-flex flex-wrap justify-content-center">
+                    <a href="{{ url_for('services') }}" class="btn btn-dark btn-lg me-3 mb-3">EXPLORE OUR SERVICES</a>
+                    <a href="{{ url_for('about') }}" class="btn btn-outline-dark btn-lg mb-3">LEARN MORE ABOUT US</a>
+                </div>
+                {% else %}
+                <h2 class="fw-bold mb-4">YOUR APPLICATION HAS BEEN SUBMITTED</h2>
+                <p class="lead mb-4">Thank you for applying with Jamega Staffing Solutions. Our team will review your application and contact you about opportunities that match your skills and availability.</p>
+                <p class="mb-5">In the meantime, you can learn more about the types of positions we typically fill and the industries we serve.</p>
+                
+                <div class="d-flex flex-wrap justify-content-center">
+                    <a href="{{ url_for('services') }}" class="btn btn-dark btn-lg me-3 mb-3">VIEW JOB TYPES</a>
+                    <a href="{{ url_for('about') }}" class="btn btn-outline-dark btn-lg mb-3">LEARN MORE ABOUT US</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What's Next Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="section-heading">WHAT HAPPENS NEXT?</h2>
+                <div class="heading-underline"></div>
+            </div>
+        </div>
+        <div class="row">
+            {% if submission_type == 'employer' %}
+            <div class="col-md-4 mb-4">
+                <div class="next-step-card text-center">
+                    <div class="step-number">1</div>
+                    <h4 class="fw-bold mt-3">INITIAL CONTACT</h4>
+                    <p>A staffing expert will call you within one business day to discuss your specific needs.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="next-step-card text-center">
+                    <div class="step-number">2</div>
+                    <h4 class="fw-bold mt-3">STAFFING PROPOSAL</h4>
+                    <p>We'll develop a customized staffing plan based on your requirements and timeline.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="next-step-card text-center">
+                    <div class="step-number">3</div>
+                    <h4 class="fw-bold mt-3">STAFF DEPLOYMENT</h4>
+                    <p>Vetted, qualified workers will be ready to start when you need them.</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-md-4 mb-4">
+                <div class="next-step-card text-center">
+                    <div class="step-number">1</div>
+                    <h4 class="fw-bold mt-3">APPLICATION REVIEW</h4>
+                    <p>Our team will review your qualifications and work preferences.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="next-step-card text-center">
+                    <div class="step-number">2</div>
+                    <h4 class="fw-bold mt-3">MATCHING PROCESS</h4>
+                    <p>We'll identify job opportunities that align with your skills and availability.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="next-step-card text-center">
+                    <div class="step-number">3</div>
+                    <h4 class="fw-bold mt-3">JOB PLACEMENT</h4>
+                    <p>We'll reach out when we find a position that's a good match for you.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="call-to-action py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h2 class="text-white mb-4">HAVE QUESTIONS?</h2>
+                <p class="text-white mb-4">Our team is available to answer any questions you might have about our staffing solutions.</p>
+                <a href="tel:+15551234567" class="btn btn-light btn-lg fw-bold">
+                    <i class="fas fa-phone me-2"></i> CALL (555) 123-4567
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
