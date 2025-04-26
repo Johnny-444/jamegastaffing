@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, TextAreaField, SelectField, SubmitField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms.validators import DataRequired, Email, Length, Optional
 
 
 class EmployerLeadForm(FlaskForm):
@@ -32,4 +33,6 @@ class CandidateApplicationForm(FlaskForm):
     ], validators=[DataRequired()])
     availability = StringField('When Are You Available to Start?', validators=[DataRequired()])
     experience = TextAreaField('Brief Description of Your Experience', validators=[DataRequired()])
+    resume = FileField('Upload Resume (PDF, DOC, DOCX - Optional)', 
+                       validators=[Optional(), FileAllowed(['pdf', 'doc', 'docx'], 'PDF, DOC, or DOCX files only')])
     submit = SubmitField('Apply Now')

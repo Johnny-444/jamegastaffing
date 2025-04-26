@@ -23,6 +23,7 @@ class CandidateApplication(db.Model):
     position_type = db.Column(db.String(50), nullable=False)
     availability = db.Column(db.String(100), nullable=False)
     experience = db.Column(db.Text, nullable=False)
+    resume_path = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):

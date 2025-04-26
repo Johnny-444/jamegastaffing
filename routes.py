@@ -1,9 +1,18 @@
 import logging
+import os
+from datetime import datetime
+from werkzeug.utils import secure_filename
 from flask import render_template, request, redirect, url_for, flash
 from app import app, db
 from forms import EmployerLeadForm, CandidateApplicationForm
 from models import EmployerLead, CandidateApplication
 from utils import send_notification_email
+
+# Configure upload folder
+UPLOAD_FOLDER = 'static/uploads/resumes'
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
@@ -17,19 +26,19 @@ def services():
 def about():
     return render_template('about.html')
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.route('/contact')
 def contact():
-    employer_form = EmployerLeadForm()
-    candidate_form = CandidateApplicationForm()
-    
-    form_type = request.args.get('form_type', 'employer')
-    
-    return render_template(
-        'contact.html',
-        employer_form=employer_form,
-        candidate_form=candidate_form,
-        form_type=form_type
-    )
+    return render_template('contact.html')
+
+@app.route('/employers', methods=['GET'])
+def employers():
+    form = EmployerLeadForm()
+    return render_template('employers.html', form=form)
+
+@app.route('/candidates', methods=['GET'])
+def candidates():
+    form = CandidateApplicationForm()
+    return render_template('candidates.html', form=form)
 
 @app.route('/submit_employer', methods=['POST'])
 def submit_employer():
@@ -67,7 +76,7 @@ def submit_employer():
             for error in errors:
                 flash(f"{getattr(form, field).label.text}: {error}", 'danger')
     
-    return redirect(url_for('contact', form_type='employer'))
+    return redirect(url_for('employers'))
 
 @app.route('/submit_candidate', methods=['POST'])
 def submit_candidate():
@@ -75,22 +84,37 @@ def submit_candidate():
     
     if form.validate_on_submit():
         try:
+            resume_path = None
+            
+            # Handle resume upload if a file was provided
+            if form.resume.data:
+                # Generate a unique filename using timestamp
+                timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+                filename = secure_filename(f"{timestamp}_{form.resume.data.filename}")
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                
+                # Save the file
+                form.resume.data.save(file_path)
+                resume_path = f"uploads/resumes/{filename}"
+            
             new_application = CandidateApplication(
                 name=form.name.data,
                 email=form.email.data,
                 phone=form.phone.data,
                 position_type=form.position_type.data,
                 availability=form.availability.data,
-                experience=form.experience.data
+                experience=form.experience.data,
+                resume_path=resume_path
             )
             
             db.session.add(new_application)
             db.session.commit()
             
             # Send notification email to staff
+            resume_info = f"\nResume: Uploaded" if resume_path else "\nResume: Not provided"
             send_notification_email(
                 subject="New Candidate Application Submitted",
-                body_text=f"New application from {form.name.data}.\nPosition: {form.position_type.data}\nContact: {form.email.data}, {form.phone.data}\nAvailability: {form.availability.data}\nExperience: {form.experience.data}"
+                body_text=f"New application from {form.name.data}.\nPosition: {form.position_type.data}\nContact: {form.email.data}, {form.phone.data}\nAvailability: {form.availability.data}\nExperience: {form.experience.data}{resume_info}"
             )
             
             flash('Your application has been received. Our team will review it and contact you soon!', 'success')
@@ -105,7 +129,7 @@ def submit_candidate():
             for error in errors:
                 flash(f"{getattr(form, field).label.text}: {error}", 'danger')
     
-    return redirect(url_for('contact', form_type='candidate'))
+    return redirect(url_for('candidates'))
 
 @app.route('/success')
 def success():
