@@ -7,6 +7,8 @@
     --dark: #212529;
     --gray: #6c757d;
     --success: #198754;
+    --orange: #ff8800;  /* Orange for "Ready to Work" button */
+    --orange-dark: #e67a00;
     --border-radius: 0;  /* Sharp corners for industrial look */
 }
 
@@ -42,6 +44,18 @@ h1, h2, h3, h4, h5, h6 {
 .btn-danger:hover, .btn-danger:focus {
     background-color: var(--primary-dark);
     border-color: var(--primary-dark);
+}
+
+.btn-orange {
+    background-color: var(--orange);
+    border-color: var(--orange);
+    color: white;
+}
+
+.btn-orange:hover, .btn-orange:focus {
+    background-color: var(--orange-dark);
+    border-color: var(--orange-dark);
+    color: white;
 }
 
 .btn-dark {
@@ -426,6 +440,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .tab-btn.active {
     background-color: var(--primary);
+    color: white;
+}
+
+.tab-btn.active[href*="form_type=employer"] {
+    background-color: var(--primary);
+    color: white;
+}
+
+.tab-btn.active[href*="form_type=candidate"] {
+    background-color: var(--orange);
     color: white;
 }
 
