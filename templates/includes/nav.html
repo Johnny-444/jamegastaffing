@@ -18,12 +18,6 @@
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href="{{ url_for('about') }}">About Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/employers' %}active{% endif %}" href="{{ url_for('employers') }}">Employers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/candidates' %}active{% endif %}" href="{{ url_for('candidates') }}">Job Seekers</a>
-                </li>
                 <li class="nav-item ms-lg-3">
                     <a class="btn btn-danger px-4 fw-bold" href="{{ url_for('employers') }}">GET STAFFED FAST</a>
                 </li>
