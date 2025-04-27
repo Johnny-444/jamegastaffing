@@ -48,16 +48,20 @@
 }
 
 .hero-section h1 {
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    text-shadow: none;
     letter-spacing: -0.5px;
 }
 
 .hero-section p {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: none;
 }
 
 .hero-section .btn {
     text-shadow: none;
+}
+
+.hero-section .text-danger {
+    color: var(--primary) !important;
 }
 
 /* Animated elements for visual interest */

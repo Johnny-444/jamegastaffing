@@ -120,11 +120,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========== HERO SECTION ========== */
 .hero-section {
-    background: url('https://images.unsplash.com/photo-1622127739239-1905bbaa21b8') no-repeat center center;
+    background: #f0f0f0; /* Light grey background */
     background-size: cover;
     padding: 8rem 0;
     position: relative;
-    color: white;
+    color: #212529; /* Dark text color for better contrast on light background */
 }
 
 .hero-overlay {
