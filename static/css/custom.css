@@ -120,11 +120,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========== HERO SECTION ========== */
 .hero-section {
-    background: #f0f0f0; /* Light grey background */
+    background: #333333; /* Dark grey background */
     background-size: cover;
     padding: 8rem 0;
     position: relative;
-    color: #212529; /* Dark text color for better contrast on light background */
+    color: white; /* White text for dark background */
 }
 
 .hero-overlay {

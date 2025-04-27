@@ -48,12 +48,12 @@
 }
 
 .hero-section h1 {
-    text-shadow: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.5px;
 }
 
 .hero-section p {
-    text-shadow: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero-section .btn {
@@ -155,7 +155,7 @@
 
 /* Enhanced navbar style for aggressive look */
 .navbar-dark {
-    background: linear-gradient(to right, #212529, #343a40) !important;
+    background: linear-gradient(to right, #424649, #494f57) !important; /* Lighter dark gray */
     border-bottom: 3px solid var(--primary);
 }
 
