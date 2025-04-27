@@ -9,7 +9,7 @@ def send_notification_email(subject, body_text):
     Send notification email to staff when a form is submitted
     """
     # Get email configuration from environment variables
-    smtp_server = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
+    smtp_server = os.environ.get('SMTP_SERVER', 'smtp.office365.com')
     smtp_port = int(os.environ.get('SMTP_PORT', 587))
     sender_email = os.environ.get('NOTIFICATION_EMAIL', 'notifications@jamegastaffing.com')
     sender_password = os.environ.get('EMAIL_PASSWORD', '')
