@@ -25,7 +25,10 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="form-container">
-                    <form action="{{ url_for('submit_employer') }}" method="POST" class="needs-validation" novalidate>
+                    <form action="https://formsubmit.co/contact@jamegastaffing.com" method="POST" class="needs-validation">
+    <input type="hidden" name="_subject" value="New Employer Lead">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="{{ url_for('success', type='employer', _external=True) }}">
                         {{ form.csrf_token }}
                         
                         <div class="row">
