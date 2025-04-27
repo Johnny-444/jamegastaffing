@@ -136,14 +136,6 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
 }
 
-.hero-text-container {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
 /* ========== PAGE HEADERS ========== */
 .page-header {
     padding: 6rem 0;
