@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="form-container">
-                    <form action="https://api.staticforms.xyz/submit" method="POST" class="needs-validation" novalidate>
+                    <form action="https://api.staticforms.xyz/submit" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
                         <input type="hidden" name="accessKey" value="{{ staticforms_key }}">
                         <input type="hidden" name="subject" value="New Job Seeker Application from Jamega Staffing">
                         <input type="hidden" name="replyTo" value="@">
@@ -82,12 +82,16 @@
                             </div>
                         </div>
                         
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-orange btn-lg fw-bold px-5">READY TO WORK</button>
+                        <div class="mb-4">
+                            <div class="form-group">
+                                <label for="resume" class="form-label fw-bold">Upload Resume (Optional)</label>
+                                <input type="file" id="resume" name="$resume" class="form-control form-control-lg" accept=".pdf,.doc,.docx">
+                                <div class="form-text">Accepted file types: PDF, DOC, DOCX (Max 5MB)</div>
+                            </div>
                         </div>
                         
-                        <div class="mt-3 text-center">
-                            <p class="text-muted">For resume submissions, please email your resume to: <a href="mailto:contact@jamegastaffing.com">contact@jamegastaffing.com</a></p>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-orange btn-lg fw-bold px-5">READY TO WORK</button>
                         </div>
                     </form>
                 </div>
