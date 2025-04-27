@@ -25,20 +25,21 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="form-container">
-                    <form action="{{ url_for('submit_candidate') }}" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
-                        {{ form.csrf_token }}
+                    <form action="https://formspree.io/f/xrgwapor" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+                        <input type="hidden" name="_subject" value="Candidate Job Application">
+                        <input type="hidden" name="_next" value="{{ url_for('index', _external=True) }}">
                         
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    {{ form.name.label(class="form-label fw-bold") }}
-                                    {{ form.name(class="form-control form-control-lg") }}
+                                    <label class="form-label fw-bold">Your Name</label>
+                                    <input type="text" name="name" class="form-control form-control-lg" required>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    {{ form.email.label(class="form-label fw-bold") }}
-                                    {{ form.email(class="form-control form-control-lg") }}
+                                    <label class="form-label fw-bold">Email</label>
+                                    <input type="email" name="email" class="form-control form-control-lg" required>
                                 </div>
                             </div>
                         </div>
@@ -46,36 +47,43 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    {{ form.phone.label(class="form-label fw-bold") }}
-                                    {{ form.phone(class="form-control form-control-lg") }}
+                                    <label class="form-label fw-bold">Phone Number</label>
+                                    <input type="tel" name="phone" class="form-control form-control-lg" required>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    {{ form.position_type.label(class="form-label fw-bold") }}
-                                    {{ form.position_type(class="form-select form-select-lg") }}
+                                    <label class="form-label fw-bold">Position Type</label>
+                                    <select name="position_type" class="form-select form-select-lg" required>
+                                        <option value="" selected disabled>Select Position Type</option>
+                                        <option value="hospitality">Hospitality</option>
+                                        <option value="industrial">Industrial</option>
+                                        <option value="general_labor">General Labor</option>
+                                        <option value="administrative">Administrative</option>
+                                        <option value="other">Other</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mb-4">
                             <div class="form-group">
-                                {{ form.availability.label(class="form-label fw-bold") }}
-                                {{ form.availability(class="form-control form-control-lg", placeholder="e.g., Immediately, Two weeks notice, Weekends only, etc.") }}
+                                <label class="form-label fw-bold">When Are You Available to Start?</label>
+                                <input type="text" name="availability" class="form-control form-control-lg" placeholder="e.g., Immediately, Two weeks notice, Weekends only, etc." required>
                             </div>
                         </div>
                         
                         <div class="mb-4">
                             <div class="form-group">
-                                {{ form.experience.label(class="form-label fw-bold") }}
-                                {{ form.experience(class="form-control form-control-lg", rows=4, placeholder="Please share any relevant work experience, skills, or certifications.") }}
+                                <label class="form-label fw-bold">Brief Description of Your Experience</label>
+                                <textarea name="experience" class="form-control form-control-lg" rows="4" placeholder="Please share any relevant work experience, skills, or certifications." required></textarea>
                             </div>
                         </div>
                         
                         <div class="mb-4">
                             <div class="form-group">
-                                {{ form.resume.label(class="form-label fw-bold") }}
-                                {{ form.resume(class="form-control form-control-lg") }}
+                                <label class="form-label fw-bold">Upload Resume (PDF, DOC, DOCX - Optional)</label>
+                                <input type="file" name="resume" class="form-control form-control-lg" accept=".pdf,.doc,.docx">
                                 <div class="form-text text-muted">
                                     Upload your resume to help us better match you with job opportunities (PDF, DOC, or DOCX format).
                                 </div>
@@ -83,7 +91,7 @@
                         </div>
                         
                         <div class="text-center mt-4">
-                            {{ form.submit(class="btn btn-orange btn-lg fw-bold px-5") }}
+                            <button type="submit" class="btn btn-orange btn-lg fw-bold px-5">READY TO WORK!</button>
                         </div>
                     </form>
                 </div>
