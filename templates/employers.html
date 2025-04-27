@@ -25,21 +25,20 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="form-container">
-                    <form action="https://formspree.io/f/xayrjera" method="POST" class="needs-validation" novalidate>
-                        <input type="hidden" name="_subject" value="Employer Staffing Request">
-                        <input type="hidden" name="_next" value="{{ url_for('index', _external=True) }}">
+                    <form action="{{ url_for('submit_employer') }}" method="POST" class="needs-validation" novalidate>
+                        {{ form.csrf_token }}
                         
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    <label class="form-label fw-bold">Your Name</label>
-                                    <input type="text" name="name" class="form-control form-control-lg" required>
+                                    {{ form.name.label(class="form-label fw-bold") }}
+                                    {{ form.name(class="form-control form-control-lg") }}
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    <label class="form-label fw-bold">Company Name</label>
-                                    <input type="text" name="company" class="form-control form-control-lg" required>
+                                    {{ form.company.label(class="form-label fw-bold") }}
+                                    {{ form.company(class="form-control form-control-lg") }}
                                 </div>
                             </div>
                         </div>
@@ -47,41 +46,34 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    <label class="form-label fw-bold">Email</label>
-                                    <input type="email" name="email" class="form-control form-control-lg" required>
+                                    {{ form.email.label(class="form-label fw-bold") }}
+                                    {{ form.email(class="form-control form-control-lg") }}
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="form-group">
-                                    <label class="form-label fw-bold">Phone Number</label>
-                                    <input type="tel" name="phone" class="form-control form-control-lg" required>
+                                    {{ form.phone.label(class="form-label fw-bold") }}
+                                    {{ form.phone(class="form-control form-control-lg") }}
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mb-4">
                             <div class="form-group">
-                                <label class="form-label fw-bold">Industry</label>
-                                <select name="industry" class="form-select form-select-lg" required>
-                                    <option value="" selected disabled>Select Industry</option>
-                                    <option value="hospitality">Hospitality</option>
-                                    <option value="industrial">Industrial</option>
-                                    <option value="general_labor">General Labor</option>
-                                    <option value="administrative">Administrative</option>
-                                    <option value="other">Other</option>
-                                </select>
+                                {{ form.industry.label(class="form-label fw-bold") }}
+                                {{ form.industry(class="form-select form-select-lg") }}
                             </div>
                         </div>
                         
                         <div class="mb-4">
                             <div class="form-group">
-                                <label class="form-label fw-bold">Describe Your Staffing Needs</label>
-                                <textarea name="staffing_needs" class="form-control form-control-lg" rows="5" placeholder="How many workers do you need? What skills are required? When do you need them?" required></textarea>
+                                {{ form.staffing_needs.label(class="form-label fw-bold") }}
+                                {{ form.staffing_needs(class="form-control form-control-lg", rows=5, placeholder="How many workers do you need? What skills are required? When do you need them?") }}
                             </div>
                         </div>
                         
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-danger btn-lg fw-bold px-5">GET STAFFED FAST</button>
+                            {{ form.submit(class="btn btn-danger btn-lg fw-bold px-5") }}
                         </div>
                     </form>
                 </div>

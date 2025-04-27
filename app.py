@@ -1,20 +1,41 @@
-
 import os
 import logging
-from flask import Flask
+from datetime import datetime
+
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
-# Create the app
+class Base(DeclarativeBase):
+    pass
+
+db = SQLAlchemy(model_class=Base)
+# create the app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key")
-app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1) # needed for url_for to generate with https
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
-# Import routes after app is initialized
+# Configure the database (SQLite for simplicity, change as needed)
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///jamega.db")
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_recycle": 300,
+    "pool_pre_ping": True,
+}
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# initialize the app with the extension
+db.init_app(app)
+
+# Import routes after app is initialized to avoid circular imports
 from routes import *
+
+with app.app_context():
+    # Import the models here so their tables will be created
+    import models
+    db.create_all()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
