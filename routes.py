@@ -31,12 +31,14 @@ def about():
 @app.route('/employers', methods=['GET'])
 def employers():
     form = EmployerLeadForm()
-    return render_template('employers.html', form=form)
+    staticforms_key = os.environ.get('STATICFORMS_ACCESS_KEY')
+    return render_template('employers.html', form=form, staticforms_key=staticforms_key)
 
 @app.route('/candidates', methods=['GET'])
 def candidates():
     form = CandidateApplicationForm()
-    return render_template('candidates.html', form=form)
+    staticforms_key = os.environ.get('STATICFORMS_ACCESS_KEY')
+    return render_template('candidates.html', form=form, staticforms_key=staticforms_key)
 
 @app.route('/submit_employer', methods=['POST'])
 def submit_employer():
